@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #image {
+            height: 64px;
+            width: 64px;
+            background: url('../imgs/ant.png') 0px 0px;
+            }
+    </style>
+    <script>
+            var tID; //we will use this variable to clear the setInterval()
+
+        function stopAnimate() {
+        clearInterval(tID);
+        } //end of stopAnimate()
+
+
+        function animateScript() {
+
+        var position = 64; //start position for the image slicer
+        const interval = 500; //100 ms of interval for the setInterval()
+        const diff = 64; //diff as a variable for position offset
+        
+        tID = setInterval(() => {
+        
+            document.getElementById("image").style.backgroundPosition =
+            `-${position}px 0px`;
+            //we use the ES6 template literal to insert the variable "position"
+            
+            if (position < 256) {
+            position = position + diff;
+            }
+            //we increment the position by 256 each time
+            else {
+            position = 64;
+            }
+            //reset the position to 256px, once position exceeds 1536px
+            
+        }, interval); //end of setInterval
+        } //end of animateScript()
+
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <p id="image" onmouseover="animateScript()" onmouseout="animateScript()"></p>
+    </div>
+</body>
+</html>
