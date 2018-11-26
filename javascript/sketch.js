@@ -24,7 +24,7 @@ function setup() {
         //animation.push(sprite_frames.get(pos,0,64,64));
         //animation.push(sprite_frames.get(pos,0,256,256));
     }
-    for(let i =0; i<5;i++){
+    for(let i =0; i<100;i++){
         ants[i] = new Sprite(random(0.1,1),100,i*100,animation);
     }
     console.log(ants);  
